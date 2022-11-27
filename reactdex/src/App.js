@@ -5,7 +5,8 @@ import './App.css';
 const App = () => {
   const [pokemon, setPokemon] = useState("pikachu");
   const [pokemonData, setPokemonData] = useState([]);
-  const [pokemonType, setPokemonType] = useState("");
+  const [pokemonType1, setPokemonType1] = useState("");
+  const [pokemonType2, setPokemonType2] = useState("");
 
   const getPokemon = async () => {
     const toArray = [];
@@ -13,7 +14,8 @@ const App = () => {
       const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
       const res = await axios.get(url);
       toArray.push(res.data);
-      setPokemonType(res.data.types[0].type.name);
+      setPokemonType1(res.data.types[0].type.name);
+      setPokemonType2(res.data.types[1].type.name);
       setPokemonData(toArray);
       console.log(res);
     } catch (e) {
@@ -55,7 +57,12 @@ const App = () => {
                 <div className="divTableBody">
                 <div className="divTableRow">
                   <div className="divTableCell">Type 1</div>
-                  <div className="divTableCell">{pokemonType}</div>
+                  <div className="divTableCell">{pokemonType1}</div>
+                </div>
+                
+                <div className="divTableRow">
+                  <div className="divTableCell">Type 2</div>
+                  <div className="divTableCell">{pokemonType2}</div>
                 </div>
 
                 <div className="divTableRow">
@@ -74,10 +81,10 @@ const App = () => {
                   </div>
 
                 </div>
-                <div className="divTableRow">
+                {/* <div className="divTableRow">
                   <div className="divTableCell">Number Battled</div>
                   <div className="divTableCell">{data.game_indices.length}</div>
-                </div>
+                </div> */}
 
                 
               </div>
