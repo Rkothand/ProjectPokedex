@@ -1,3 +1,4 @@
+
 //so this is a pokemon database that i retrieved from github to save sometime in compiling the information needed on generations 1-8
 //This was retrieved prior to the release of pokemon scarlet and violet
 //This is also my first large scale javascript project so this will be a fun learning expierience using Pokemon which is a series that I Love

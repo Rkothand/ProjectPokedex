@@ -75,7 +75,7 @@ const App = () => {
 
                 <div className="divTableRow">
                   <div className="divTableCell">Average Weight</div>
-                  <div className="divTableCell">
+                  <div className="divTableCell"> 
                     {" "}
                     {Math.round(data.weight / 4.3)} lbs
                   </div>
