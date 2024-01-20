@@ -21,7 +21,7 @@ const StyledHeading = styled.h1`
 const App = () => {
   return (
     <StyledApp>
-      <StyledHeading>Pokedex</StyledHeading>
+      <StyledHeading>Project Pokedex</StyledHeading>
       <DynamicGrid />
     </StyledApp>
   );
