@@ -101,7 +101,18 @@ const generatePokemonData = (count) => {
           description: pokemon.pokemon_type.join(', '),
           imageUrl: `img/pokemon/${String(pokemon.base_id).padStart(4, '0')}_${String(pokemon.form_id).padStart(3, '0')}_fd_n.png`, // Assuming images are named like 0001_000_mf_n.png
         });
-      }  
+      }
+
+            //male and female no diff
+      if (pokemon.gender.length === 1 && pokemon.gender[0] === "uk") {
+              mockData.push({
+                id: pokemon.base_id,
+                name: pokemon.name,
+                description: pokemon.pokemon_type.join(', '),
+                imageUrl: `img/pokemon/${String(pokemon.base_id).padStart(4, '0')}_${String(pokemon.form_id).padStart(3, '0')}_uk_n.png`, // Assuming images are named like 0001_000_mf_n.png
+              });
+            }
+        
 
 
       // Checking evolution
