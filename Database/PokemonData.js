@@ -886,7 +886,7 @@ export default {
     "nidoran-f": {
         "base_id": 29,
         "form_id": 0,
-        "name": "Nidoran\u00e2\u2122\u20ac",
+        "name": "Nidoran-F",
         "pokemon_type": [
             "poison"
         ],
@@ -954,7 +954,7 @@ export default {
     "nidoran-m": {
         "base_id": 32,
         "form_id": 0,
-        "name": "Nidoran\u00e2\u2122\u201a",
+        "name": "Nidoran-M",
         "pokemon_type": [
             "poison"
         ],

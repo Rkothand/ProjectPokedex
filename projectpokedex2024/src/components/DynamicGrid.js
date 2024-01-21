@@ -56,36 +56,18 @@ const generatePokemonData = () => {
 
       }
       //no diff
-      if (pokemon.gender.length === 1) {
+      // if (pokemon.gender.length === 1) {
         PokedexDisplayData.push({
           id: pokemon.base_id,
+          eggGroup: pokemon.egg_group,
           name: pokemon.name,
           description: pokemon.pokemon_type.join(', '),
           imageUrl: `img/pokemon/${String(pokemon.base_id).padStart(4, '0')}_${String(pokemon.form_id).padStart(3, '0')}_${String(pokemon.gender[0])}_n.png`, // Assuming images are named like 0001_000_mf_n.png
         });
-      }
-
-      //male and female diff
-      if (pokemon.gender.length === 2 && pokemon.gender[0] === "fd") {
-        PokedexDisplayData.push({
-          id: pokemon.base_id,
-          name: pokemon.name,
-          description: pokemon.pokemon_type.join(', '),
-          imageUrl: `img/pokemon/${String(pokemon.base_id).padStart(4, '0')}_${String(pokemon.form_id).padStart(3, '0')}_fd_n.png`, // Assuming images are named like 0001_000_mf_n.png
-        });
-      }
-
-      // //male and female no diff
-      // if (pokemon.gender.length === 1 && pokemon.gender[0] === "uk") {
-      //   PokedexDisplayData.push({
-      //     id: pokemon.base_id,
-      //     name: pokemon.name,
-      //     description: pokemon.pokemon_type.join(', '),
-      //     imageUrl: `img/pokemon/${String(pokemon.base_id).padStart(4, '0')}_${String(pokemon.form_id).padStart(3, '0')}_uk_n.png`, // Assuming images are named like 0001_000_mf_n.png
-      //   });
       // }
 
-      // if (pokemon.gender.length === 1 && pokemon.gender[0] === "fd") {
+      //male and female diff
+      // if (pokemon.gender.length === 2 && pokemon.gender[0] === "fd") {
       //   PokedexDisplayData.push({
       //     id: pokemon.base_id,
       //     name: pokemon.name,
@@ -131,7 +113,7 @@ const DynamicGrid = () => {
           <h3>{item.name}</h3>
           <p>{item.description}</p>
           <StyledItemButton onClick={() => handleButtonClick(index)} isActive={item.isActive}>
-            Click me
+            missing
           </StyledItemButton>
         </StyledItem>
       ))}
