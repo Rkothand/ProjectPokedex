@@ -54,10 +54,11 @@ const generatePokemonData = () => {
 
       PokedexDisplayData.push({
         id: pokemon.base_id,
+        form_id: pokemon.form_id,
         eggGroup: pokemon.egg_group,
-        CatchStatus: 'missing',
-        ShinyStatus: 'missing',
-        LivingDexStatus: 'missing',
+        CatchStatus: 'no',
+        ShinyStatus: 'no',
+        LivingDexStatus: 'no',
         name: pokemon.name,
         description: pokemon.pokemon_type.join(', '),
         isActive: false,
@@ -67,25 +68,29 @@ const generatePokemonData = () => {
       });
 
       // Checking evolution
-      if (pokemon.evolution_ids) {
-        const [evolvesIntoBaseId, evolvesIntoFormId] = pokemon.evolution_ids[0];
-        console.log(`Evolves into Base ID: ${evolvesIntoBaseId}`);
-        console.log(`Evolves into Form ID: ${evolvesIntoFormId}`);
-      }
+      // if (pokemon.evolution_ids) {
+      //   const [evolvesIntoBaseId, evolvesIntoFormId] = pokemon.evolution_ids[0];
+      //   console.log(`Evolves into Base ID: ${evolvesIntoBaseId}`);
+      //   console.log(`Evolves into Form ID: ${evolvesIntoFormId}`);
+      // }
     }
   }
   return PokedexDisplayData;
 };
 
 const DynamicGrid = () => {
+  let pokedexDisplayData;
   const [gridData, setGridData] = useState([]);
 
   useEffect(() => {
-    const pokedexDisplayData = generatePokemonData();
+    pokedexDisplayData = generatePokemonData();
     setGridData(pokedexDisplayData);
   }, []);
 
   const handleButtonClick = (index, buttonType) => {
+    console.log(`base_id: ${gridData[index].id} and form_id: ${gridData[index].form_id}`);
+
+    
     setGridData((prevData) => {
       const newData = [...prevData];
       let CatchStatus;
