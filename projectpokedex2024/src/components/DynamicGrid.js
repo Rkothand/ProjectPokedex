@@ -98,7 +98,7 @@ const DynamicGrid = () => {
       let shinyStatus
 
       switch (buttonType) {
-        case 'caught':
+        case 'caught': // sets caught to yes and all to no if caught is set to no
           CatchStatus = newData[index].caught === 'yes' ? 'no' : 'yes';
           newData[index] = {
             ...newData[index],
@@ -107,7 +107,7 @@ const DynamicGrid = () => {
             shiny: CatchStatus === 'no' ? 'no' : newData[index].shinyStatus,
           };
           break;
-        case 'livingDex':
+        case 'livingDex': // sets caught and livingDex to yes if livingDex is set to yes
           livingDexStatus = newData[index].livingDex === 'yes' ? 'no' : 'yes';
           newData[index] = {
             ...newData[index],
@@ -115,7 +115,7 @@ const DynamicGrid = () => {
             caught: livingDexStatus === 'yes' ? 'yes' : newData[index].caught,
           };
           break;
-        case 'shiny':
+        case 'shiny': // sets caught and shiny to yes if shiny is set to yes
           shinyStatus = newData[index].shiny === 'yes' ? 'no' : 'yes';
           newData[index] = {
             ...newData[index],
