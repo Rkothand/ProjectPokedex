@@ -14,9 +14,13 @@ const StyledApp = styled.div`
   padding: 20px; /* Add some padding if needed */
 `;
 
-const StyledHeading = styled.h1`
-  text-align: center;
-`;
+  const StyledHeading = styled.h1`
+    text-align: center;
+    font-size: 100px;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+  `;
 
 const App = () => {
   return (
