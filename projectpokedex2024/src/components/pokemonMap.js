@@ -11,10 +11,11 @@ let pokedexMappingInterface = [];
       const pokemon = PokemonData[pokemonKey];
 
       pokedexMappingInterface.push({
-        name: pokemon.name,
+        name: pokemonKey,
         filtershow : true, // this is for the filter if it catches then display
         base_idid: pokemon.base_id,
         form_id: pokemon.form_id,
+        form_name: pokemon.form_name? pokemon.form_name : 'base form',
         genderdiffs: pokemon.gender, //options for gender diff
         gender: pokemon.gender[0],
         eggGroup: pokemon.egg_group,
@@ -93,8 +94,8 @@ export function updateShinyStatus(pokemonName, newStatus) {//use this in other f
 
 
 
-export function updateFilterShow(pokemonName, newStatus) {//use this in other files to update the living dex status
-  let locPokemon = pokedexMappingInterface.find(pokemon => pokemon.name === pokemonName);
+export function updateFilterShow(pokemonName, pokemonFormName, newStatus) {//use this in other files to update the living dex status
+  let locPokemon = pokedexMappingInterface.find(pokemon => pokemon.name === pokemonName && pokemon.form_name === pokemonFormName);
   if (newStatus === true) {
     locPokemon.filtershow = true;//show when filtered
   }
