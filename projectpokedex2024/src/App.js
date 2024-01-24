@@ -5,6 +5,7 @@ import DynamicTable from './components/DynamicTable';
 
 // src/App.js
 import DynamicGrid from './components/DynamicGrid';
+import DropDownMenus from './components/DropDownMenus';
 import styled from '@emotion/styled';
 
 const StyledApp = styled.div`
@@ -26,6 +27,7 @@ const App = () => {
   return (
     <StyledApp>
       <StyledHeading>Project Pokedex</StyledHeading>
+      <DropDownMenus />
       <DynamicGrid />
     </StyledApp>
   );
