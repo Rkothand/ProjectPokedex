@@ -1,7 +1,9 @@
 // src/components/Pokemon/PokemonList.js
 import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import { pokedexMappingInterface } from './pokemonMap';
 
-const PokemonList = ({ pokemonData }) => {
+const TypeFilter = ({ pokemonData }) => {
   const [selectedTypes, setSelectedTypes] = useState([]); // Default to an empty array
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -60,5 +62,5 @@ const PokemonList = ({ pokemonData }) => {
     </div>
   );
 };
+export default TypeFilter;
 
-export default PokemonList;

@@ -11,9 +11,9 @@ let pokedexMappingInterface = [];
       const pokemon = PokemonData[pokemonKey];
 
       pokedexMappingInterface.push({
-        filtershow : true, // this is for the filter if it catches then display
         name: pokemon.name,
-        id: pokemon.base_id,
+        filtershow : true, // this is for the filter if it catches then display
+        base_idid: pokemon.base_id,
         form_id: pokemon.form_id,
         genderdiffs: pokemon.gender, //options for gender diff
         gender: pokemon.gender[0],
@@ -42,7 +42,7 @@ let pokedexMappingInterface = [];
 export{pokedexMappingInterface}
 
 export function updateGenderDiffImgUrl(pokemonName, change) {//use this to change img display
-  let locPokemon = pokedexMappingInterface[pokemonName];
+  let locPokemon = pokedexMappingInterface.find(pokemon => pokemon.name === pokemonName);
   if (locPokemon.genderdiffs.length === 2){
     if (change === 'display male') {
       // locPokemon.imageUrl = `img/pokemon/${String(locPokemon.base_id).padStart(4, '0')}_${String(locPokemon.form_id).padStart(3, '0')}_${String(locPokemon.gender[1])}_n.png`;
@@ -58,7 +58,7 @@ export function updateGenderDiffImgUrl(pokemonName, change) {//use this to chang
 
 
 export function updateCatchStatus(pokemonName, newStatus) { //use this in other files to update the catch status
-  let locPokemon = pokedexMappingInterface[pokemonName];
+  let locPokemon = pokedexMappingInterface.find(pokemon => pokemon.name === pokemonName);
   if (newStatus === 'no') {
     locPokemon.CatchStatus = 'no'; //if you don't have it you don't have it in the living dex or shiny dex 
     locPokemon.ShinyStatus = 'no';
@@ -70,7 +70,7 @@ export function updateCatchStatus(pokemonName, newStatus) { //use this in other 
 }
 
 export function updateLivingDexStatus(pokemonName, newStatus) {//use this in other files to update the living dex status
-  let locPokemon = pokedexMappingInterface[pokemonName];
+  let locPokemon = pokedexMappingInterface.find(pokemon => pokemon.name === pokemonName);
   if (newStatus === 'yes') {
     locPokemon.LivingDexStatus = 'yes';
     locPokemon.CatchStatus = 'yes'; //if you have a living dex you have it in the dex now
@@ -81,7 +81,7 @@ export function updateLivingDexStatus(pokemonName, newStatus) {//use this in oth
 }
 
 export function updateShinyStatus(pokemonName, newStatus) {//use this in other files to update the shiny status
-  let locPokemon = pokedexMappingInterface[pokemonName];
+  let locPokemon = pokedexMappingInterface.find(pokemon => pokemon.name === pokemonName);
   if (newStatus === 'yes') {
     locPokemon.ShinyStatus = 'yes';
     locPokemon.CatchStatus = 'yes'; //if you have a shiny you have it in the dex now
@@ -94,23 +94,21 @@ export function updateShinyStatus(pokemonName, newStatus) {//use this in other f
 
 
 export function updateFilterShow(pokemonName, newStatus) {//use this in other files to update the living dex status
-  let locPokemon = pokedexMappingInterface[pokemonName];
-  if (newStatus === 'true') {
-    locPokemon.filtershow = 'true';//show when filtered
+  let locPokemon = pokedexMappingInterface.find(pokemon => pokemon.name === pokemonName);
+  if (newStatus === true) {
+    locPokemon.filtershow = true;//show when filtered
   }
-  else if (newStatus === 'false') {
-    locPokemon.filtershow = 'false';//hide when filtered
+  else if (newStatus === false) {
+    locPokemon.filtershow = false;//hide when filtered
   }
 }
 
-  // Update the catch status of the Pokemon with the given name
-  // console.log('updateCatchStatus');
-  // console.log(pokemonName);
-  // console.log(newStatus);
-  // console.log(pokemonMap);
-  // console.log(pokemonMap[pokemonName]);
-  // console.log(pokemonMap[pokemonName].CatchStatus);
-  // pokemonMap[pokemonName].CatchStatus = newStatus;
-  // console.log(pokemonMap[pokemonName].CatchStatus);
 
-// Call the function to convert Pokemon data and populate pokemonMap
+
+
+
+
+
+
+
+

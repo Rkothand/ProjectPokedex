@@ -84,10 +84,13 @@ const StyledItemButton = styled.button`
 
 
 //list of objects that will be displayed in the pokedex
+
+
 console.log(pokedexMappingInterface);
 console.log('pokedexDisplayData is ');
-const pokedexDisplayData = pokedexMappingInterface.filter(pokemon => pokemon.filtershow);
-// console.log(pokedexDisplayData);
+
+
+
 
 
  const DynamicGrid = () => {
@@ -95,7 +98,8 @@ const pokedexDisplayData = pokedexMappingInterface.filter(pokemon => pokemon.fil
   const [gridData, setGridData] = useState([]);
 
 useEffect(() => {
-  setGridData(pokedexDisplayData);
+  setGridData(pokedexMappingInterface.filter(pokemon => pokemon.filtershow));
+  
 }, []);
 
   // handleButtonClick(index, buttonType)

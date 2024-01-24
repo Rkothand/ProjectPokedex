@@ -5,8 +5,10 @@ import DynamicTable from './components/DynamicTable';
 
 // src/App.js
 import DynamicGrid from './components/DynamicGrid';
-import DropDownMenus from './components/DropDownMenus';
+import DropDownMenus from './components/TypeFilterDropDownMenus';
 import styled from '@emotion/styled';
+import TypeFilter from './components/TypeFilterDropDownMenus';
+import CatchFilter from './components/catchDropDownMenus';
 
 const StyledApp = styled.div`
   display: flex;
@@ -22,12 +24,19 @@ const StyledApp = styled.div`
     margin: 0;
     padding: 20px;
   `;
+const FiltersContainer = styled.div`
+  display: flex;
+  gap: 20px; /* Adjust the gap as needed */
+`;
 
 const App = () => {
   return (
     <StyledApp>
       <StyledHeading>Project Pokedex</StyledHeading>
-      <DropDownMenus />
+      <FiltersContainer>
+        <TypeFilter />
+        <CatchFilter />
+      </FiltersContainer>
       <DynamicGrid />
     </StyledApp>
   );
