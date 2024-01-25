@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { updateFilterShow, pokedexMappingInterface } from './pokemonMap';
 
-const TypeFilter = ({ pokemonData }) => {
+const TypeFilter = ({ updateGridData }) => {
   const [selectedTypes, setSelectedTypes] = useState([]); // Default to an empty array
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -16,16 +16,17 @@ const TypeFilter = ({ pokemonData }) => {
           updateFilterShow(locPokemon.name, locPokemon.form_name, false); //show nothing if no types selected
         }
       }
-      
+
       console.log('no types selected');
       // console.log(pokedexMappingInterface);
       return;
     }
 
     else {
+      console.log('types selected' + selectedTypes);
       // Otherwise, filter the array
-    for (const key in pokedexMappingInterface) {
-      // if (pokedexMappingInterface.hasOwnProperty(key)) {
+      for (const key in pokedexMappingInterface) {
+        // if (pokedexMappingInterface.hasOwnProperty(key)) {
         const locPokemon = pokedexMappingInterface[key];
         // console.log(locPokemon);
         // console.log(locPokemon.types);
@@ -38,8 +39,8 @@ const TypeFilter = ({ pokemonData }) => {
         }
       }
     }
-    console.log(pokedexMappingInterface);
-    
+    // console.log(pokedexMappingInterface);
+
   };
 
 
@@ -55,7 +56,7 @@ const TypeFilter = ({ pokemonData }) => {
       } else {
         setSelectedTypes([...selectedTypes, type]);
       }
-  
+
       // If 'All' checkbox was previously selected and any other checkbox is now deselected, unselect 'All'
       if (selectedTypes.includes('All') && !selectedTypes.includes(type)) {
         setSelectedTypes(selectedTypes.filter(selectedType => selectedType !== 'All'));
@@ -70,6 +71,8 @@ const TypeFilter = ({ pokemonData }) => {
 
   useEffect(() => {
     filterPokemonByTypes(selectedTypes);
+    updateGridData(); // Call the updateGridData function passed from props
+    // console.log(selectedTypes);
   }, [selectedTypes]);
 
 

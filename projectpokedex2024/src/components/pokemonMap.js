@@ -12,7 +12,7 @@ let pokedexMappingInterface = [];
 
       pokedexMappingInterface.push({
         name: pokemonKey,
-        filtershow : true, // this is for the filter if it catches then display
+        filtershow : false, // this is for the filter if it catches then display
         base_idid: pokemon.base_id,
         form_id: pokemon.form_id,
         form_name: pokemon.form_name? pokemon.form_name : 'base form',
