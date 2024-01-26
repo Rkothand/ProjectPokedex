@@ -34,7 +34,7 @@ const DynamicGrid = () => {
 
   const updateGridData = useCallback(() => {
     setGridData(pokedexMappingInterface.filter(pokemon => pokemon.filtershow === true));
-  }, [pokedexMappingInterface]);
+  }, []);
 
   useEffect(() => {
     updateGridData();

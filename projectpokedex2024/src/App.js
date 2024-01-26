@@ -37,7 +37,7 @@ const App = () => {
       <StyledHeading>Project Pokedex</StyledHeading>
       <FiltersContainer>
         <TypeFilter updateGridData={updateGridData} /> {/* Pass updateGridData function as prop */}
-        <CatchFilter />
+        <CatchFilter updateGridData={updateGridData}/>
       </FiltersContainer>
       <DynamicGrid key={forceUpdate} /> {/* Use key prop for force re-rendering */}
     </StyledApp>
