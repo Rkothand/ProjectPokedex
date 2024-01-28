@@ -2,35 +2,23 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { updateFilterShow, pokedexMappingInterface } from './pokemonMap';
+import {receiveSelectedCatchStatus} from './combinedFilter';
 // import {selectedTypes} from './TypeFilterDropDownMenus';
 
-const TypeFilter = ({ updateGridData }) => {
+const CatchFilter = ({ updateGridData }) => {
   const [selectedCatchStatus, setSelectedStatus] = useState([]); // Default to an empty array
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   // Filter the array based on the selected types
   const filterPokemonByCatchStatus = (selectedCatchStatus) => {
+    console.log('selectedCatchStatus: ' + selectedCatchStatus);
     for (const key in pokedexMappingInterface) {
       if (pokedexMappingInterface.hasOwnProperty(key)) {
         const locPokemon = pokedexMappingInterface[key];
         if (selectedCatchStatus.includes('All')) {
           updateFilterShow(locPokemon.name, locPokemon.form_name, true);
         }
-        else
-        {
-          if(selectedCatchStatus.includes('caught') && selectedCatchStatus.includes('missing')){
-            updateFilterShow(locPokemon.name, locPokemon.form_name, true);
-          }
-          if (selectedCatchStatus.includes('caught') && locPokemon.CatchStatus === 'yes') {
-            updateFilterShow(locPokemon.name, locPokemon.form_name, true);
-          }
-          if (selectedCatchStatus.includes('missing') && locPokemon.CatchStatus === 'no') {
-            updateFilterShow(locPokemon.name, locPokemon.form_name, true);
-          }
-          if (selectedCatchStatus.includes('livingdex') && locPokemon.LivingDexStatus === 'yes') {
-            updateFilterShow(locPokemon.name, locPokemon.form_name, true);
-          }
-          if (selectedCatchStatus.includes('shiny') && locPokemon.ShinyStatus === 'yes') {
+        else if((selectedCatchStatus.includes('Caught') && locPokemon.CatchStatus === 'yes')||(selectedCatchStatus.includes('Missing') && locPokemon.CatchStatus === 'no')||(selectedCatchStatus.includes('LivingDex') && locPokemon.LivingDexStatus === 'yes')||(selectedCatchStatus.includes('Shiny') && locPokemon.ShinyStatus === 'yes')){
             updateFilterShow(locPokemon.name, locPokemon.form_name, true);
           }
           else {
@@ -38,8 +26,7 @@ const TypeFilter = ({ updateGridData }) => {
           }
         }
       }
-    }
-  };
+    };
 
 
   // Handle checkbox change
@@ -61,6 +48,7 @@ const TypeFilter = ({ updateGridData }) => {
         setSelectedStatus(selectedCatchStatus.filter(selectedType => selectedType !== 'All'));
       }
     }
+    console.log('selectedCatchStatus: ' + selectedCatchStatus);
   };
 
   // Handle dropdown toggle
@@ -69,9 +57,11 @@ const TypeFilter = ({ updateGridData }) => {
   };
 
   useEffect(() => {
+    console.log('selectedCatchStatus: ' + selectedCatchStatus);
     filterPokemonByCatchStatus(selectedCatchStatus);
+    // receiveSelectedCatchStatus(selectedCatchStatus);
     updateGridData(); // Call the updateGridData function passed from props
-    // console.log(selectedTypes);
+
   }, [selectedCatchStatus]);
 
 
@@ -99,15 +89,8 @@ const TypeFilter = ({ updateGridData }) => {
           </div>
         )}
       </div>
-
-      {/* Display the filtered Pokemon list */}
-      <ul>
-        {/* {filteredPokemon.map(pokemon => (
-          <li key={pokemon.id}>{pokemon.name} - Type: {pokemon.types}</li>
-        ))} */}
-      </ul>
     </div>
   );
 };
-export default TypeFilter;
+export default CatchFilter;
 

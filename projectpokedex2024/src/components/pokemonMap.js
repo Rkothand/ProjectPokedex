@@ -11,9 +11,9 @@ let pokedexMappingInterface = [];
       const pokemon = PokemonData[pokemonKey];
 
       pokedexMappingInterface.push({
-        name: pokemonKey,
+        name: pokemon.name,
         filtershow : false, // this is for the filter if it catches then display
-        base_idid: pokemon.base_id,
+        base_id: pokemon.base_id,
         form_id: pokemon.form_id,
         form_name: pokemon.form_name? pokemon.form_name : 'base form',
         genderdiffs: pokemon.gender, //options for gender diff

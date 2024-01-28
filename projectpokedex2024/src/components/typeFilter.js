@@ -17,13 +17,13 @@ const TypeFilter = ({ updateGridData }) => {
         }
       }
 
-      // console.log('no types selected');
+      console.log('no types selected');
       // console.log(pokedexMappingInterface);
       return;
     }
 
     else {
-      // console.log('types selected' + selectedTypes);
+      console.log('types selected' + selectedTypes);
       // Otherwise, filter the array
       for (const key in pokedexMappingInterface) {
         // if (pokedexMappingInterface.hasOwnProperty(key)) {
@@ -46,29 +46,23 @@ const TypeFilter = ({ updateGridData }) => {
 
   // Handle checkbox change
   const handleCheckboxChange = (type) => {
-    let types =  ['bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice', 'normal', 'poison', 'psychic', 'rock', 'steel', 'water']; 
     if (type === 'All') {
       // If 'All' checkbox is changed, toggle its selection
       setSelectedTypes(selectedTypes.includes('All') ? [] : ['All', 'bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice', 'normal', 'poison', 'psychic', 'rock', 'steel', 'water']);
     } else {
       // If any other checkbox is changed, toggle its selection
       if (selectedTypes.includes(type)) {
+        // If the checkbox is already selected, deselect it
         setSelectedTypes(selectedTypes.filter(selectedType => selectedType !== type));
       } else {
-        setSelectedTypes([...selectedTypes, type]);
-      }
-  
-      // If 'All' checkbox was previously selected and any other checkbox is now deselected, unselect 'All'
-      if (selectedTypes.includes('All') && !selectedTypes.includes(type)) {
-        setSelectedTypes(selectedTypes.filter(selectedType => selectedType !== 'All'));
-      }
-  
-      // If all other checkboxes are selected, select 'All'
-      if (selectedTypes.length === types.length-1) {
-        setSelectedTypes(['All', ...types]);
+        // If the checkbox is not selected, check if 'All' is selected
+        const updatedTypes = [...selectedTypes, type];
+        setSelectedTypes(updatedTypes.includes('All') ? ['All', 'bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice', 'normal', 'poison', 'psychic', 'rock', 'steel', 'water'] : updatedTypes);
       }
     }
   };
+  
+
 
   // Handle dropdown toggle
   const toggleDropdown = () => {
@@ -78,7 +72,7 @@ const TypeFilter = ({ updateGridData }) => {
   useEffect(() => {
     filterPokemonByTypes(selectedTypes);
     updateGridData(); // Call the updateGridData function passed from props
-    // console.log(selectedTypes);
+    console.log(selectedTypes);
   }, [selectedTypes]);
 
 
@@ -117,4 +111,3 @@ const TypeFilter = ({ updateGridData }) => {
   );
 };
 export default TypeFilter;
-

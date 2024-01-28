@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import DynamicGrid from './components/DynamicGrid';
 import styled from '@emotion/styled';
-import TypeFilter from './components/TypeFilterDropDownMenus'; // Update import
-import CatchFilter from './components/catchDropDownMenus';
+import TypeFilter from './components/typeFilter.js'; // Update import
+import CatchFilter from './components/catchFilter.js';
 
 const StyledApp = styled.div`
   display: flex;
