@@ -1,80 +1,42 @@
-
-//so this is a pokemon database that i retrieved from github to save sometime in compiling the information needed on generations 1-8
-//This was retrieved prior to the release of pokemon scarlet and violet
-//This is also my first large scale javascript project so this will be a fun learning expierience using Pokemon which is a series that I Love
-
-
-export default {
-    "bulbasaur": {//so we're gonna use bulbasaur,ivysaur,and venusaur as a main example since they contain most of the necessary data points but look for more unique traits in some other pokemon 
-        "base_id": 1, //Pokedex Number
-        "form_id": 0, //Form ID encompasses all Megas and Regional Variants numbers are by case
-        "name": "Bulbasaur", //Obviously the name
-        "pokemon_type": [ //Pokemon type 
-            "grass", //Type 1
-            "poison" //Type 2 if applicable
-        ],
-        "egg_group": [ //Egg Groups
-            "monster", 
-            "grass"
-        ],
-        "gender": [ //Gender Encompasses these areas mf = MaleFemale, mo=MaleOnly, fo=FemaleOnly, uk=Unkown
-            "mf" 
-        ],
-        "gender_ratio": 1, //gender ratio types male:female ratio, 0=100:0, 1=87.5:12.5, 2=75:25, 3=50:50, 6=25:75, 7=12.5:87.5, 8=0:100
-        "color": "green", //pokedex color
-        "experience_group": "Medium Slow", //expierience group
-        "generation": 1, //generation
-        "evolution_ids": [ 
-            [
-                2, //evolves into base_id
-                0 //evolves into form_id
-            ]
-        ]
+{
+    "bulbasaur": {
+        "base_id": 1,
+        "form_id": 0,
+        "name": "Bulbasaur",
+        "pokemon_type": [ "grass", "poison" ],
+        "egg_group": [ "monster", "grass" ],
+        "gender": [ "mf" ],
+        "gender_ratio": 1,
+        "shape": 5,
+        "color": "green",
+        "experience_group": "Medium Slow",
+        "generation": 1,
+        "evolution_ids": [ [ 2, 0 ] ]
     },
     "ivysaur": {
         "base_id": 2,
         "form_id": 0,
         "name": "Ivysaur",
-        "pokemon_type": [
-            "grass",
-            "poison"
-        ],
-        "egg_group": [
-            "monster",
-            "grass"
-        ],
-        "gender": [
-            "mf"
-        ],
+        "pokemon_type": [ "grass", "poison" ],
+        "egg_group": [ "monster", "grass" ],
+        "gender": [ "mf" ],
         "gender_ratio": 1,
+        "shape": 5,
         "color": "green",
         "experience_group": "Medium Slow",
         "generation": 1,
-        "evolution_ids": [
-            [
-                3,
-                0
-            ]
-        ]
+        "evolution_ids": [ [ 3, 0 ] ]
     },
     "venusaur": {
         "base_id": 3,
         "form_id": 0,
         "name": "Venusaur",
-        "pokemon_type": [
-            "grass",
-            "poison"
-        ],
-        "egg_group": [
-            "monster",
-            "grass"
-        ],
-        "gender": [
-            "fd",
-            "md"
-        ],
+        "pokemon_type": [ "grass", "poison" ],
+        "egg_group": [ "monster", "grass" ],
+        "gender": [ "fd", "md" ],
         "gender_ratio": 1,
-        "has_gigantamax": true, //this is the tag to show that there is a GMAX form
+        "has_gigantamax": true,
+        "shape": 5,
         "color": "green",
         "experience_group": "Medium Slow",
         "generation": 1
@@ -82,22 +44,16 @@ export default {
     "venusaur-mega": {
         "base_id": 3,
         "form_id": 1,
-        "name": "Mega Venusaur",
-        "pokemon_type": [
-            "grass",
-            "poison"
-        ],
-        "egg_group": [
-            "monster",
-            "grass"
-        ],
-        "gender": [
-            "mf"
-        ],
+        "name": "Venusaur",
+        "form_name": "Mega Venusaur",
+        "pokemon_type": [ "grass", "poison" ],
+        "egg_group": [ "monster", "grass" ],
+        "gender": [ "mf" ],
         "gender_ratio": 1,
-        "is_mega": true, //this is a tag that shows that this is a mega form of a pokemon
-        "color": "green",
+        "is_mega": true,
         "is_battle_only": true,
+        "shape": 5,
+        "color": "green",
         "experience_group": "Medium Slow",
         "generation": 6
     },
@@ -1097,7 +1053,7 @@ export default {
         "color": "brown",
         "experience_group": "Medium Fast",
         "generation": 1,
-        "evolution_ids": [ [ 936, 0 ] ]
+        "evolution_ids": [ [ 979, 0 ] ]
     },
     "growlithe": {
         "base_id": 58,
@@ -3515,7 +3471,7 @@ export default {
         "color": "blue",
         "experience_group": "Medium Fast",
         "generation": 9,
-        "evolution_ids": [ [ 924, 0 ] ]
+        "evolution_ids": [ [ 980, 0 ] ]
     },
     "quagsire": {
         "base_id": 195,
@@ -4055,7 +4011,7 @@ export default {
         "color": "yellow",
         "experience_group": "Medium Fast",
         "generation": 2,
-        "evolution_ids": [ [ 945, 0 ] ]
+        "evolution_ids": [ [ 981, 0 ] ]
     },
     "pineco": {
         "base_id": 204,
@@ -4096,7 +4052,7 @@ export default {
         "color": "yellow",
         "experience_group": "Medium Fast",
         "generation": 2,
-        "evolution_ids": [ [ 944, 0 ], [ 944, 1 ] ]
+        "evolution_ids": [ [ 982, 0 ], [ 982, 1 ] ]
     },
     "gligar": {
         "base_id": 207,
@@ -18843,4 +18799,4 @@ export default {
         "experience_group": "Slow",
         "generation": 9
     }
-};
+}
