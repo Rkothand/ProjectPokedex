@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-import DynamicGrid from './components/DynamicGrid';
+import DynamicGrid from './components/DynamicGrid.js';
 import styled from '@emotion/styled';
 import TypeFilter from './components/typeFilter.js'; // Update import
 import CatchFilter from './components/catchFilter.js';
